@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+    int a[10][10],i,j,m,n,k,t1,t2,t3;
+    scanf("%d %d",&m,&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            if(i==j)
+            {a[i][j]=0;
+
+            }
+            else
+            {
+            a[i][j]=99999;
+            }
+        }
+        
+    }
+         for(i=1;i<=m;i++)
+        {
+            scanf("%d %d %d",&t1,&t2,&t3);
+            a[t1][t2]=t3;
+
+        }
+        for(k=1;k<=n;k++)
+            for(i=1;i<=n;i++)
+                for(j=1;j<=n;j++)
+                {
+                    if (a[i][j]>a[i][k]+a[k][j])
+                    {
+                    a[i][j]>a[i][k]+a[k][j];
+                    }
+                }
+        for(i=1;i<=n;i++)
+            for(j=1;j<=n;j++)
+            {printf("%10d",a[i][j]);
+
+            } 
+            return 0;    
+
+}
