@@ -2,7 +2,7 @@
 int main()
 {
     int a[10][10],i,j,m,n,k,t1,t2,t3;
-    scanf("%d %d",&m,&n);
+    scanf("%d %d",&n,&m);
     for(i=1;i<=n;i++)
     {
         for(j=1;j<=n;j++)
@@ -34,10 +34,11 @@ int main()
                     }
                 }
         for(i=1;i<=n;i++)
+        {
             for(j=1;j<=n;j++)
-            {printf("%10d",a[i][j]);
-
+            {
+            printf("%12d",a[i][j]);
             } 
-            return 0;    
-
+            printf("\n");    
+        }
 }

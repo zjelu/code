@@ -1,8 +1,9 @@
 #include<stdio.h>
 int main()
 {
-    int a[10][10],i,j,m,n,k,starx,stary,dis[15]={"0"},book[101];
-    scanf("边的条数=%d 点的个数=%d",&m,&n);
+    int a[10][10],i,j,m,n,k,u,dis[15],book[101];
+    printf("边的条数与点的个数为");
+    scanf("%d %d",&n,&m);
     for(i=1;i<=n;i++)
     {
         for(j=1;j<=n;j++)
@@ -18,10 +19,10 @@ int main()
         }
         
     }
-    scanf("%d %d",&starx,&stary);
     
     for(i=1;i<=m;i++)
     {   int t1,t2,t3;
+        printf("开始构图");
         scanf("%d %d %d",&t1,&t2,&t3);
         a[t1][t2]=t3;
 
@@ -30,17 +31,20 @@ int main()
     for(i=1;i<=n;i++)
         {
         dis[i]=a[1][i];
-        book[i]=0;
         }
-        book[1]=1;
-    for(j=1;j<=n-1;j++)
-    {      int u;
-    for(k=1;k<=n;k++)
+
+    for(i=1;i<=n;i++)
+        book[i]=0;
+    book[1]=0;
+    
+    for(i=1;i<=n-1;i++)
+    {   int min =99999; 
+       
+    for(j=1;j<=n;j++)
         {   
-        int min =99999;
-        if(dis[k]<min&&book[j]==0)
+        if(dis[j]<min && book[j]==0)
             {  
-            min=dis[k];
+            min=dis[j];
             u=j;
             }
         }
@@ -58,10 +62,12 @@ int main()
 
     }
     for(j=1;j<=n;j++)
-            {printf("%10d",a[i][j]);
-
-            } 
-            return 0;
+    {
+    printf("%10d",dis[j]);
+    } 
+    getchar();
+    getchar();
+    return 0;
     
 
 }
